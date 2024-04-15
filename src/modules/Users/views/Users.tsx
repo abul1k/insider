@@ -1,41 +1,26 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useSelector } from 'react-redux'
+import { useFetching } from '@/hooks'
+import { getUsers } from '@/state/users/user.actions'
+import { RootState } from '@/state/store'
 import { Table } from '@/components'
-import $axios from '@/plugins/axios'
-import { useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
-
-interface IUser {
-  id: string
-  username: string
-  roles: string[]
-}
 
 export const Users = () => {
-  const [users, setUsers] = useState<IUser[]>([])
+  const { loading, users } = useSelector(({ users }: RootState) => users)
 
   const fields = [
     { key: 'username', label: 'Username' },
     { key: 'roles', label: 'Role' },
   ]
 
-  const getUserData = async () => {
-    try {
-      const { data } = await $axios.get('/users')
-      setUsers(data)
-    } catch (error: any) {
-      toast.error(
-        error?.response?.data?.error || error?.response?.data?.message || error.message
-      )
-    }
-  }
-
-  useEffect(() => {
-    getUserData()
-  }, [])
+  useFetching(getUsers)
 
   return (
-    <div className="card">
-      <Table fields={fields} items={users} />
+    <div className='card'>
+      {loading ? (
+        <span>Loading...</span>
+      ) : (
+        <Table fields={fields} items={users} />
+      )}
     </div>
   )
 }

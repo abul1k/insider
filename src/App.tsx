@@ -5,7 +5,7 @@ export const App = () => {
   const isDarkMode = true
 
   return (
-    <div className={isDarkMode ? 'dark' : ''}>
+    <div className={isDarkMode ? 'dark app' : 'app'}>
       <AppRouter />
       <ToastContainer
         stacked

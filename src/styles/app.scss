@@ -21,5 +21,14 @@ body {
   }
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full cursor-pointer
+}
+
+
 @import "sidebar";
 @import "navbar";
