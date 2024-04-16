@@ -2,7 +2,7 @@ import { AppRouter } from '@/router/AppRouter'
 import { ToastContainer } from 'react-toastify'
 
 export const App = () => {
-  const isDarkMode = true
+  const isDarkMode = false
 
   return (
     <div className={isDarkMode ? 'dark app' : 'app'}>
