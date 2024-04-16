@@ -20,29 +20,68 @@ export const Sidebar = () => {
             <Icons icon='Bars3Icon' className='w-6 h-6 text-primary' />
           </button>
         </div>
-        {sidebar.map((route) => (
-          <div key={route.path} className='sidebar_container_routes'>
-            {check(route.permission) && (
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? 'sidebar_container_routes_route active'
-                    : 'sidebar_container_routes_route'
-                }
-                to={route.path}>
-                <i>
-                  <SidebarIcons
-                    icon={route.icon}
-                    className={`w-4 h-4 ${
-                      pathname === route.path ? 'text-primary' : ''
-                    }`}
-                  />
-                </i>
-                <span>{route.name}</span>
-              </NavLink>
-            )}
-          </div>
-        ))}
+        <div className='overflow-y-scroll h-[87%]'>
+          {sidebar.map((route) => (
+            <div key={route.path} className='sidebar_container_routes'>
+              {check(route.permission) &&
+                (route.path ? (
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? 'sidebar_container_routes_route active'
+                        : 'sidebar_container_routes_route'
+                    }
+                    to={route.path || '/'}>
+                    <i>
+                      <SidebarIcons
+                        icon={route.icon || 'FolderIcon'}
+                        className={`w-4 h-4 ${
+                          pathname === route.path ? 'text-primary' : ''
+                        }`}
+                      />
+                    </i>
+                    <span>{route.name}</span>
+                  </NavLink>
+                ) : (
+                  <div className='sidebar_container_routes_route-group'>
+                    <div className='sidebar_container_routes_route-group_header'>
+                      <i>
+                        <SidebarIcons
+                          icon={route.icon || 'FolderIcon'}
+                          className={`w-4 h-4 ${
+                            pathname === route.path
+                              ? 'text-primary'
+                              : 'text-light'
+                          }`}
+                        />
+                      </i>
+                      <span>{route.name}</span>
+                    </div>
+                    {route.children &&
+                      route.children.map((child) => (
+                        <NavLink
+                          className={({ isActive }) =>
+                            isActive
+                              ? 'sidebar_container_routes_route-group_child active'
+                              : 'sidebar_container_routes_route-group_child'
+                          }
+                          to={route.path || '/'}>
+                          <i>
+                            <SidebarIcons
+                              icon={route.icon || 'FolderIcon'}
+                              className={`w-4 h-4 ${
+                                pathname === route.path ? 'text-primary' : ''
+                              }`}
+                            />
+                          </i>
+                          <span>{child.name}</span>
+                        </NavLink>
+                      ))}
+                  </div>
+                ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

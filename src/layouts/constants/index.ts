@@ -14,5 +14,24 @@ export const sidebarItems: ISidebarItems[] = [
     path: '/users',
     permission: ['ADMIN'],
     children: []
-  }
+  },
+  // {
+  //   icon: '',
+  //   name: 'Knowledge Base',
+  //   permission: ['ADMIN'],
+  //   children: [
+  //     {
+  //       icon: '',
+  //       name: 'Regions',
+  //       path: '/regions',
+  //       permission: ['ADMIN'],
+  //     },
+  //     {
+  //       icon: '',
+  //       name: 'Languages',
+  //       path: '/languages',
+  //       permission: ['ADMIN'],
+  //     }
+  //   ]
+  // }
 ]

@@ -36,6 +36,26 @@
           @apply absolute top-[50%] -translate-y-[50%] left-10 transition-all duration-300 ease-out
         }
       }
+
+      &_route-group {
+        @apply w-[90%] max-h-52;
+
+        &_header {
+          @apply relative cursor-pointer h-[45px] rounded;
+          
+          i {
+            @apply absolute top-[50%] -translate-y-[50%] left-[15px] transition-all duration-300 ease-out
+          }
+  
+          span {
+            @apply absolute top-[50%] -translate-y-[50%] left-10 transition-all duration-300 ease-out
+          }
+        }
+
+        &_child {
+          @apply flex items-center gap-2 ml-3.5 py-2.5 
+        }
+      }
     }
   }
 
