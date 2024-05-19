@@ -1,6 +1,6 @@
 .sidebar {
   &_container {
-    @apply fixed overflow-hidden z-30 top-0 left-0 bg-light dark:bg-dark min-w-[200px] w-[15vw] h-[100vh] transition-all duration-300;
+    @apply fixed overflow-hidden z-30 top-0 left-0 bg-light dark:bg-dark min-w-[200px] w-[15vw] h-[100vh];
 
     &_brand {
       @apply relative w-full px-4 flex justify-between items-center h-[80px];
@@ -10,7 +10,7 @@
       }
 
       &_toggler {
-        @apply absolute top-[0%] right-0 flex items-center justify-center h-[80px] min-w-[5vw] bg-light dark:bg-dark transition-all duration-300
+        @apply absolute top-[0%] right-0 flex items-center justify-center h-[80px] min-w-[5vw] bg-light dark:bg-dark
       }
     }
 
@@ -29,11 +29,11 @@
         }
 
         i {
-          @apply absolute top-[50%] -translate-y-[50%] left-[15px] transition-all duration-300 ease-out
+          @apply absolute top-[50%] -translate-y-[50%] left-[15px]
         }
 
         span {
-          @apply absolute top-[50%] -translate-y-[50%] left-10 transition-all duration-300 ease-out
+          @apply absolute top-[50%] -translate-y-[50%] left-10
         }
       }
 
@@ -42,18 +42,18 @@
 
         &_header {
           @apply relative cursor-pointer h-[45px] rounded;
-          
+
           i {
-            @apply absolute top-[50%] -translate-y-[50%] left-[15px] transition-all duration-300 ease-out
+            @apply absolute top-[50%] -translate-y-[50%] left-[15px]
           }
-  
+
           span {
-            @apply absolute top-[50%] -translate-y-[50%] left-10 transition-all duration-300 ease-out
+            @apply absolute top-[50%] -translate-y-[50%] left-10
           }
         }
 
         &_child {
-          @apply flex items-center gap-2 ml-3.5 py-2.5 
+          @apply flex items-center gap-2 ml-3.5 py-2.5
         }
       }
     }

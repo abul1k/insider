@@ -10,19 +10,19 @@ export const Sidebar = () => {
   const { pathname } = useLocation()
 
   return (
-    <div className='sidebar close'>
-      <div className='sidebar_container shadow'>
-        <div className='sidebar_container_brand'>
-          <h1 className='sidebar_container_brand_name'>
-            <span className='text-primary'>I</span>nsider
+    <div className="sidebar">
+      <div className="sidebar_container shadow">
+        <div className="sidebar_container_brand">
+          <h1 className="sidebar_container_brand_name">
+            <span className="text-primary">I</span>nsider
           </h1>
-          <button className='sidebar_container_brand_toggler'>
-            <Icons icon='Bars3Icon' className='w-6 h-6 text-primary' />
+          <button className="sidebar_container_brand_toggler">
+            <Icons icon="Bars3Icon" className="w-6 h-6 text-primary" />
           </button>
         </div>
-        <div className='overflow-y-scroll h-[87%]'>
+        <div className="overflow-y-scroll h-[87%]">
           {sidebar.map((route) => (
-            <div key={route.path} className='sidebar_container_routes'>
+            <div key={route.path} className="sidebar_container_routes">
               {check(route.permission) &&
                 (route.path ? (
                   <NavLink
@@ -43,8 +43,8 @@ export const Sidebar = () => {
                     <span>{route.name}</span>
                   </NavLink>
                 ) : (
-                  <div className='sidebar_container_routes_route-group'>
-                    <div className='sidebar_container_routes_route-group_header'>
+                  <div className="sidebar_container_routes_route-group">
+                    <div className="sidebar_container_routes_route-group_header">
                       <i>
                         <SidebarIcons
                           icon={route.icon || 'FolderIcon'}

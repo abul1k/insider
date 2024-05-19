@@ -5,7 +5,7 @@ export interface CounterState {
 }
 
 const initialState: CounterState = {
-  isDarkTheme: false,
+  isDarkTheme: JSON.parse(localStorage.getItem('isDarkMode') || 'false'),
 }
 
 export const layoutSlice = createSlice({
@@ -14,6 +14,7 @@ export const layoutSlice = createSlice({
   reducers: {
     switchTheme: (state) => {
       state.isDarkTheme = !state.isDarkTheme
+      localStorage.setItem('isDarkMode', JSON.stringify(state.isDarkTheme))
     },
   },
 })

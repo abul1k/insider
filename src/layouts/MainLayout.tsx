@@ -7,7 +7,7 @@ export const MainLayout = () => {
     <>
       <Sidebar />
       <Navbar />
-      <div className='bg-lightGray dark:bg-darkGray min-h-[100vh] md:pl-[16vw] px-[1vw] py-[95px]'>
+      <div className="bg-lightGray dark:bg-darkGray min-h-[100vh] md:pl-[16vw] px-[1vw] py-[95px]">
         <Outlet />
       </div>
     </>
