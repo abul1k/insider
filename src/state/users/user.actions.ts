@@ -1,14 +1,15 @@
-import $axios from '@/plugins/axios';
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import $axios from '@/plugins/axios'
+import { createAsyncThunk } from '@reduxjs/toolkit'
+import { IParams } from '../interfaces'
 
 export const getUsers = createAsyncThunk(
   'users/getUsers',
-  async (params, thunkAPI) => {
+  async (params: IParams, thunkAPI) => {
     try {
-      const res = await $axios.get(`/users/`, { params })
-      return res.data
+      const { data } = await $axios.get(`/users/`, { params })
+      return data
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error)
     }
   }
 )

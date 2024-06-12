@@ -1,20 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { IUserState } from './interfaces';
-import { getUsers } from './user.actions';
+import { IUser, IUserState } from './interfaces'
+import { getUsers } from './user.actions'
+import { IResponse } from '../interfaces'
 
 const initialState: IUserState = {
-  loading: false,
-  users: [],
+  loading: true,
+  users: {} as IResponse<IUser>,
 }
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {},
-  extraReducers: builder => {
-    builder.addCase(getUsers.pending, (state) => {
-      state.loading = true
-    })
+  extraReducers: (builder) => {
+    builder
+      .addCase(getUsers.pending, (state) => {
+        state.loading = true
+      })
       .addCase(getUsers.fulfilled, (state, { payload }) => {
         state.loading = false
         state.users = payload
@@ -22,7 +24,7 @@ const userSlice = createSlice({
       .addCase(getUsers.rejected, (state) => {
         state.loading = false
       })
-  }
+  },
 })
 
 export default userSlice.reducer

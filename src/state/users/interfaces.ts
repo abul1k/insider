@@ -1,10 +1,13 @@
+import { IResponse } from '../interfaces'
+
 export interface IUserState {
-  loading: boolean;
-  users: IUser[]
+  loading: boolean
+  users: IResponse<IUser>
 }
 
 export interface IUser {
-  id: string
+  _id: string
   username: string
+  createdAt: string
   roles: string[]
 }
