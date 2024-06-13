@@ -50,9 +50,8 @@ export const Pagination: FC<IPagination> = ({
   }
 
   const getItemProps = (page: number) => ({
-    variant: currentPage === page ? 'filled' : 'text',
     className: `${
-      currentPage === page && 'bg-gray-700 !text-white hover:bg-gray-700'
+      currentPage === page && 'bg-gray-700 !text-white active-pagination-button'
     } w-8 h-8 rounded-md hover:bg-gray-700/10 dark:text-gray-500`,
     onClick: () => onPageChange(page),
   })
@@ -70,21 +69,21 @@ export const Pagination: FC<IPagination> = ({
 
   return (
     <div className={className}>
-      <div className="flex items-center gap-4">
+      <div className='flex items-center gap-4'>
         <button
-          className="flex items-center gap-2 disabled:opacity-60 dark:text-gray-300"
+          className='flex items-center gap-2 disabled:opacity-60 dark:text-gray-300'
           onClick={prev}
           disabled={currentPage === 1}>
-          <Icons icon="ArrowLeftIcon" className="w-4 h-4" /> Previous
+          <Icons icon='ArrowLeftIcon' className='w-4 h-4' /> Previous
         </button>
-        <div className="flex items-center gap-2 mx-2">
+        <div className='flex items-center gap-2 mx-2'>
           {renderPageButtons()}
         </div>
         <button
-          className="flex items-center gap-2 disabled:opacity-60 dark:text-gray-300"
+          className='flex items-center gap-2 disabled:opacity-60 dark:text-gray-300'
           onClick={next}
           disabled={currentPage === totalPages}>
-          Next <Icons icon="ArrowRightIcon" className="w-4 h-4" />
+          Next <Icons icon='ArrowRightIcon' className='w-4 h-4' />
         </button>
       </div>
     </div>

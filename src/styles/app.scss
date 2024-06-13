@@ -31,7 +31,10 @@ body {
 
 .focus-on-input:focus-within {
   @apply outline outline-2 outline-primary;
+}
 
+.active-pagination-button {
+  @apply hover:bg-gray-700
 }
 
 input[type="search"]::-webkit-search-cancel-button {

@@ -28,12 +28,13 @@ export const Users = () => {
   }, [dispatch, debouncedSearch])
 
   return (
-    <div className="card">
+    <div className='card'>
+
       <Input
-        id="search"
-        type="search"
-        className="w-60"
-        label="Search"
+        id='search'
+        type='search'
+        className='w-60'
+        label='Search'
         value={filters.search}
         onChange={(e) => setFilters({ ...filters, search: e.target.value })}
       />
@@ -41,7 +42,7 @@ export const Users = () => {
         <Spinner />
       ) : (
         users.results.map((user) => (
-          <div key={user._id} className="my-4">
+          <div key={user._id} className='my-4'>
             <h1>{user.username}</h1>
             <p>{formatDate(user.createdAt, true)}</p>
           </div>
@@ -49,7 +50,7 @@ export const Users = () => {
       )}
 
       <Pagination
-        className="flex justify-center"
+        className='flex justify-center'
         currentPage={filters.page}
         perPage={filters.limit}
         total={users.total}
