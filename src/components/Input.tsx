@@ -16,12 +16,12 @@ export const Input: React.FC<InputProps> = ({
   ...props
 }) => {
   return (
-    <div className={className}>
+    <div className={`${className} w-60`}>
       <label className='block text-sm mb-2' htmlFor={id}>
         {label && <span className='block mb-1'>{label}</span>}
         {type === 'search' ? (
           <div className='focus-on-input flex items-center gap-2 bg-light dark:bg-darkGray dark:border-darkGray dark:text-light shadow appearance-none border rounded w-full px-3 py-2 leading-tight focus:outline focus:outline-2 focus:outline-primary'>
-            <Icons icon='MagnifyingGlassIcon' className='w-1/12 h-5 text-secondary dark:text-light' />
+            <Icons icon='MagnifyingGlassIcon' className='w-1/12 h-4 text-secondary dark:text-light' />
             <input
               id={id}
               type='search'
@@ -34,7 +34,7 @@ export const Input: React.FC<InputProps> = ({
           <input
             id={id}
             type={type}
-            className='bg-light dark:bg-darkGray dark:border-darkGray dark:text-light shadow appearance-none border rounded w-full p-3 leading-tight focus:outline focus:outline-2 focus:outline-primary'
+            className='bg-light dark:bg-darkGray dark:border-darkGray dark:text-light shadow appearance-none border rounded w-full px-3 py-2 leading-tight focus:outline focus:outline-2 focus:outline-primary'
             placeholder={props.placeholder || label}
             {...props}
           />

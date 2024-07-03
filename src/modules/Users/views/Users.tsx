@@ -29,11 +29,9 @@ export const Users = () => {
 
   return (
     <div className='card'>
-
       <Input
         id='search'
         type='search'
-        className='w-60'
         label='Search'
         value={filters.search}
         onChange={(e) => setFilters({ ...filters, search: e.target.value })}

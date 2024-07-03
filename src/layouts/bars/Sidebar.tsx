@@ -4,25 +4,33 @@ import { sidebarItems } from '../constants'
 import { ISidebarItems } from '../constants/interface'
 import { Icons, SidebarIcons } from '@/components'
 import { check } from '@/utils/check'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '@/state/store'
+import { toggleSidebar } from '@/state/layout/layout'
 
 export const Sidebar = () => {
-  const sidebar: ISidebarItems[] = sidebarItems
   const { pathname } = useLocation()
+  const dispatch = useDispatch()
+  const { isSidebarOpen } = useSelector(({ layout }: RootState) => layout)
+
+  const sidebar: ISidebarItems[] = sidebarItems
 
   return (
-    <div className="sidebar">
-      <div className="sidebar_container shadow">
-        <div className="sidebar_container_brand">
-          <h1 className="sidebar_container_brand_name">
-            <span className="text-primary">I</span>nsider
+    <div className={`sidebar${isSidebarOpen ? '' : ' closed'}`}>
+      <div className='sidebar_container shadow'>
+        <div className='sidebar_container_brand'>
+          <h1 className='sidebar_container_brand_name'>
+            <span className='text-primary'>I</span>nsider
           </h1>
-          <button className="sidebar_container_brand_toggler">
-            <Icons icon="Bars3Icon" className="w-6 h-6 text-primary" />
+          <button
+            onClick={() => dispatch(toggleSidebar())}
+            className='sidebar_container_brand_toggler'>
+            <Icons icon='Bars3Icon' className='w-6 h-6 text-primary' />
           </button>
         </div>
-        <div className="overflow-y-scroll h-[87%]">
+        <div className='overflow-y-scroll h-[87%]'>
           {sidebar.map((route) => (
-            <div key={route.path} className="sidebar_container_routes">
+            <div key={route.path} className='sidebar_container_routes'>
               {check(route.permission) &&
                 (route.path ? (
                   <NavLink
@@ -43,8 +51,8 @@ export const Sidebar = () => {
                     <span>{route.name}</span>
                   </NavLink>
                 ) : (
-                  <div className="sidebar_container_routes_route-group">
-                    <div className="sidebar_container_routes_route-group_header">
+                  <div className='sidebar_container_routes_route-group'>
+                    <div className='sidebar_container_routes_route-group_header'>
                       <i>
                         <SidebarIcons
                           icon={route.icon || 'FolderIcon'}
