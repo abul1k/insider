@@ -5,7 +5,7 @@ import { Input, Pagination, Spinner } from '@/components'
 import { formatDate } from '@/utils/commons'
 import { useEffect, useState } from 'react'
 import { IParams } from '@/state/interfaces'
-import { useDebounce } from '@/hooks/useDebounce'
+import { useDebounce } from '@/hooks'
 
 const filterState: IParams = {
   search: '',
