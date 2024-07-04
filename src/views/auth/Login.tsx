@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { login } from '@/jwt/jwtService'
-import { Input } from '@/components'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import { login } from '@/jwt/jwtService'
+import { Input } from '@/components'
 
 const scheme = z.object({
   username: z.string().nonempty('Username is required'),
