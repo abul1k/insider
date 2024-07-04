@@ -31,7 +31,7 @@ export const Select: React.FC<SelectProps> = ({
   }
 
   return (
-    <div className={`${className} w-60`}>
+    <div className={`${className} min-w-60`}>
       <label className='block text-sm mb-2' htmlFor={id}>
         {label && <span className='block mb-1'>{label}</span>}
         <select

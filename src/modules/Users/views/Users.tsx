@@ -29,13 +29,15 @@ export const Users = () => {
 
   return (
     <div className='card'>
-      <Input
-        id='search'
-        type='search'
-        label='Search'
-        value={filters.search}
-        onChange={(e) => setFilters({ ...filters, search: e.target.value })}
-      />
+      <div className='flex'>
+        <Input
+          id='search'
+          type='search'
+          label='Search'
+          value={filters.search}
+          onChange={(e) => setFilters({ ...filters, search: e.target.value })}
+        />
+      </div>
       {loading ? (
         <Spinner />
       ) : (
